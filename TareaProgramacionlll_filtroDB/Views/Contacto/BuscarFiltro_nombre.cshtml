@@ -1,0 +1,51 @@
+﻿@model IEnumerable<TareaProgramacionlll_filtroDB.Contactos>
+
+@{
+    ViewBag.Title = "BuscarFiltro_nombre";
+}
+
+<h2>BuscarFiltro_nombre</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create") ||
+    @Html.ActionLink("Back to List", "Index")
+    @using (Html.BeginForm("BuscarFiltro_nombre", "Contacto", FormMethod.Get))
+    {
+        <text>
+            Busqueda por nombres: @Html.TextBox("Nombre") <br />
+            <input type="submit" name="" value="Buscar" />
+        </text>
+    }
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dirrecion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telefono)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dirrecion)
+        </td>
+        <td>
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id_contactos })
+        </td>
+    </tr>
+}
+
+</table>

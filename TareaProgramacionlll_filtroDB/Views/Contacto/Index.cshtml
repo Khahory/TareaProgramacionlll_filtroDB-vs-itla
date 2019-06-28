@@ -1,0 +1,44 @@
+﻿@model IEnumerable<TareaProgramacionlll_filtroDB.Contactos>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create") ||
+    @Html.ActionLink("Buscar por nombre", "BuscarFiltro_nombre")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dirrecion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telefono)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dirrecion)
+        </td>
+        <td>
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id_contactos })
+        </td>
+    </tr>
+}
+
+</table>
